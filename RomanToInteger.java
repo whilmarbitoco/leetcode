@@ -1,5 +1,6 @@
-public class Solution {
+import java.util.HashMap;
 
+public class RomanToInteger {
     public int romanToInt(String roman) {
         HashMap<Character, Integer> pairs = new HashMap<>();
         pairs.put('I', 1);
@@ -15,7 +16,7 @@ public class Solution {
         char[] romanChar = roman.toCharArray();
 
         for (int i = 0; i < romanChar.length; i++) {
-          int value = pairs.get(romanChar[i]);
+            int value = pairs.get(romanChar[i]);
             if (i + 1 < romanChar.length && value < pairs.get(romanChar[i + 1])) {
                 result -= value;
             } else {
@@ -24,6 +25,5 @@ public class Solution {
         }
         return result;
     }
-
 
 }
